@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { renderField } from '../helpers';
 import { getSettings, updateSettings, stopDetection } from '../../actions';
-import _ from 'lodash';
 
 class Settings extends Component {
   componentWillMount() {
     this.props.getSettings();
   }
   handleSubmit = (values) => {
-    let { interval: { success, nighttime, error}, stopped } = this.props.settings;
+    let { interval: { success, nighttime, error}} = this.props.settings;
     success = values.success || success;
     error = values.error || error;
     nighttime = values.nighttime || nighttime;
@@ -26,7 +25,7 @@ class Settings extends Component {
   renderForm() {
     if(this.props.settings.interval) {
       console.log(this.props.settings);
-      const { interval: { success, nighttime, error}, stopped } = this.props.settings;
+      const { interval: { success, nighttime, error}} = this.props.settings;
       const { handleSubmit } = this.props;
       return (
         <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
