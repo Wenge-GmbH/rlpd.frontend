@@ -1,0 +1,79 @@
+// Colors
+
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/media-queries";
+
+@import "base/base";
+@import "base/typography";
+
+@import "layout/basic-layouts";
+@import "layout/flexbox";
+@import "layout/grid";
+
+@import "components/nav";
+@import "components/logs";
+
+.plate {
+  z-index: 101;
+  position: fixed;
+  margin: 0;
+  left: 20px;
+  top: 16px;
+  font-size: 16px;
+  color: $text;
+
+  &.big {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20vw;
+    text-align: center;
+  }
+}
+
+
+
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-dark;
+
+  fieldset {
+    border: 0;
+    padding: 16px 12px;
+
+    input {
+      outline: 0;
+      border: 2px solid $primary-dark;
+      padding: 8px 12px;
+    }
+    label {
+      padding-right: 8px;
+    }
+  }
+}
+
+button {
+  outline: 0;
+  border: 0;
+  background-color: white;
+  padding: 8px 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &.danger {
+    background-color: rgb(164, 44, 44);
+    color: white;
+  }
+}
+
+form.signin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

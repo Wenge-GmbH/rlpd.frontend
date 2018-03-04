@@ -1,0 +1,76 @@
+// main: ../main.scss
+
+html {
+  font-size: 11pt;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  color: $text;
+  font-family: sans-serif;
+  background-color: $secondary-light;
+}
+
+* {
+  position: relative;
+  @include prefix(box-sizing, border-box);
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
+    @include transition(0.3s);
+    @include prefix(box-sizing, border-box);
+  }
+  &::selection {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+
+fieldset {
+  border: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+hr {
+  border: 0;
+}
+
+button, input, textarea {
+  outline: none;
+  border: none;
+}
+button, a {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: $text;
+  }
+}
+
+.shadow {
+  box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.3);
+  &-bottom {
+    box-shadow: 0px 40px 50px -30px rgba(0,0,0,0.5);
+  }
+  &-left {
+    box-shadow: -6px 0 20px 8px rgba(0,0,0,0.9);
+  }
+}

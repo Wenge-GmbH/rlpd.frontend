@@ -1,0 +1,19 @@
+// main: ../main.scss
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $primary-dark;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 100;
+
+  a {
+    color: $text;
+    padding: 16px 20px;
+  }
+}

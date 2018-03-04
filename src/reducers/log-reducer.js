@@ -1,5 +1,3 @@
-import mapKeys from 'lodash/mapKeys';
-
 import { SUCCESS_LOG, ERROR_LOG } from '../actions/types';
 
 export default ( state={}, action ) => {

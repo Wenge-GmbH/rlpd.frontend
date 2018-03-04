@@ -1,0 +1,75 @@
+// main: ../main.scss
+
+// main: ../index.scss
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+  font-size: 1.6rem
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+  font-size: 12pt;
+  &.center {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+a {
+  @include transition();
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: $primary-light;;
+  }
+}
+
+li {
+  font-size: 12pt;
+}
+
+// text transformations
+.regular {
+  font-weight: 400 !important;
+}
+.bold {
+  font-weight: 700 !important;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+// align classes
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}

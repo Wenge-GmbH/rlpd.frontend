@@ -1,0 +1,31 @@
+// main: ../main.scss
+
+.log {
+  p,h3 {
+    padding: 0.8rem;
+  }
+
+  &-head {
+    background-color: $primary;
+    p, h3 {
+      @extend .align-center;
+    }
+    .date {
+      padding: 0.5rem;
+      background-color: $primary-dark;
+    }
+  }
+
+  &-item {
+    margin: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &-results {
+    // background-color:
+  }
+  &-body {
+    background-color: $secondary;
+  }
+}

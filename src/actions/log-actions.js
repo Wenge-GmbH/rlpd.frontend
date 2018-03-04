@@ -20,6 +20,10 @@ export const getLog = (log) => {
         })
       } else {
         console.log(snapshot.val());
+        dispatch({
+          type: ERROR_LOG,
+          payload: snapshot.val()
+        })
       }
     })
   }

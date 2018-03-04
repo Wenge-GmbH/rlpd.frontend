@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { renderField } from '../helpers';
 import { signinUser } from '../../actions';
+
 class Signin extends Component {
   handleSubmit({ email, password }) {
     this.props.signinUser({ email, password }, (path) => {
@@ -14,7 +15,7 @@ class Signin extends Component {
     const { handleSubmit } = this.props;
 
     return(
-      <form onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
+      <form className="signin" onSubmit={handleSubmit(this.handleSubmit.bind(this))}>
         <Field
            name="email"
            type="email"
