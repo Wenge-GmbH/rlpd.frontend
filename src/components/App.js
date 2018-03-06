@@ -18,7 +18,7 @@ class App extends Component {
   renderLinks() {
     if(this.props.authenticated) {
       return(
-        <nav>
+        <nav className="column flex-align-start justify-start">
           <Link to="/">Home</Link>
           <Link to="/log/success">Success Log</Link>
           <Link to="/log/error">Error Log</Link>
@@ -31,12 +31,10 @@ class App extends Component {
   render() {
     const { current: plate = 'loading plate' } = this.props.plate;
     return (
-      <div className="app">
-        <h1 className={this.props.authenticated ? 'plate' : 'plate big'}>{plate}</h1>
+      <div className={this.props.authenticated ? "app app-authed" : "app app-unauthed"}>
+        <h1 className={this.props.authenticated ? 'plate small' : 'plate big'}>{plate}</h1>
         {this.renderLinks()}
-
-          {this.renderSettings()}
-
+        {this.renderSettings()}
       </div>
     );
   }

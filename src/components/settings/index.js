@@ -24,7 +24,6 @@ class Settings extends Component {
 
   renderForm() {
     if(this.props.settings.interval) {
-      console.log(this.props.settings);
       const { interval: { success, nighttime, error}} = this.props.settings;
       const { handleSubmit } = this.props;
       return (
@@ -61,7 +60,7 @@ class Settings extends Component {
 
   render() {
     return (
-      <div className="fullScreenSection row flex-align-center justify-center">
+      <div className="outer-container fullScreenSection row flex-align-center justify-center">
         <div className="container">
           {this.renderForm()}
           <div>

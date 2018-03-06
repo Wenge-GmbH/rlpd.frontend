@@ -1,10 +1,23 @@
 // main: ../main.scss
 
+.app {
+  &-unauthed {
+    @extend .fullScreenSection;
+    @extend .shadow-left;
+  }
+  &-authed {
+
+  }
+}
+
 nav {
   position: fixed;
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
   top: 0;
   left: 0;
-  width: 100%;
+  padding-top: 60px;
   background-color: $primary-dark;
   display: flex;
   flex-flow: row wrap;

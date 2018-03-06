@@ -45,6 +45,9 @@
 .justify-end {
   @include prefix(justify-content, flex-end);
 }
+.justify-start {
+  @include prefix(justify-content, flex-start);
+}
 
 .align-self-end {
   align-self: flex-end;

@@ -16,6 +16,8 @@ class Errorlog extends Component {
     console.log(errorImages);
     if (errorImages) {
       return <img src={errorImages[key]} />;
+    } else {
+      return <p>...loading</p>;
     }
   }
 
