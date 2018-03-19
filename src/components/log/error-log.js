@@ -25,7 +25,7 @@ class Errorlog extends Component {
     const log = _.map(this.props.error, (item, key) => {
       const date = moment(item.epoch_time).add(1, 'h').format('HH:mm:ss - DD.MM.YYYY');
       return (
-        <div key={key}>
+        <div key={key} className="error-log-item">
           <p>{date}</p>
           <div className="img-container">
             {this.renderImage(key)}
@@ -33,8 +33,14 @@ class Errorlog extends Component {
         </div>
       )
     })
+
     return (
-      <div>{log}</div>
+      <div className="outer-container">
+        <h1 className="align-center">Errorlog</h1>
+        <div className="column container justify-center flex-align-center">
+          {log}
+        </div>
+      </div>
     );
   }
 }

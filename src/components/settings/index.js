@@ -13,8 +13,7 @@ class Settings extends Component {
     success = values.success || success;
     error = values.error || error;
     nighttime = values.nighttime || nighttime;
-    console.log(success, error, nighttime);
-
+    
     this.props.updateSettings({success, error, nighttime});
   }
 

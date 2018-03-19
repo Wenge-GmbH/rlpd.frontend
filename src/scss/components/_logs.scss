@@ -29,3 +29,13 @@
     background-color: $secondary;
   }
 }
+
+.error-log-item {
+  p {
+    background-color: $primary;
+    padding: 4px 8px;
+  }
+  .img-container {
+    max-width: 300px;
+  }
+}
