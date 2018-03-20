@@ -20,7 +20,10 @@ export const getImgUrls = (arr, dispatch) => {
   }
   function checkExecution() {
     if (i < arr.length) {
-      getUrl(arr[i].path, arr[i].key);
+      const path = arr[i].path;
+      const sliceAt = path.indexOf('/') + 1;
+      const getPath = [path.slice(0, sliceAt), 'thumb_', path.slice(sliceAt)].join('');
+      getUrl(getPath, arr[i].key);
     } else {
       return;
     }
