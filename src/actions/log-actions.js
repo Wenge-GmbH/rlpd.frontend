@@ -7,6 +7,7 @@ const db = firebase.database();
 
 export const getImgUrls = (arr, dispatch) => {
   let i = 0;
+  let error = 0;
   function getUrl(path, id) {
     storage.ref(path).getDownloadURL().then((url) => {
       dispatch({
@@ -15,7 +16,17 @@ export const getImgUrls = (arr, dispatch) => {
         id
       })
       i++;
+      error = 0;
       checkExecution();
+    }).catch((e) => {
+      if(error >= 3) {
+        return false;
+      }
+      console.log('error');
+      setTimeout(function () {
+        error++;
+        getUrl(path, id);
+      }, 1000);
     });
   }
   function checkExecution() {
@@ -34,9 +45,9 @@ export const getImgUrls = (arr, dispatch) => {
 export const getLog = (log) => {
   return dispatch => {
     console.log(`logs/${log}`);
-    db.ref(`logs/${log}`).orderByKey().limitToLast(50).on('value', snapshot => {
+    db.ref(`logs/${log}`).orderByKey().limitToLast(20).on('value', snapshot => {
       if(log === 'success') {
-        // console.log(snapshot.val());
+        console.log(snapshot.val());
         dispatch({
           type: SUCCESS_LOG,
           payload: snapshot.val()
@@ -45,8 +56,8 @@ export const getLog = (log) => {
         const imageUrls = _.map(snapshot.val(), (item, key) => {
           return { key, path: item.image};
         })
-        console.log(imageUrls);
-        getImgUrls(imageUrls, dispatch);
+        // console.log(imageUrls);
+        getImgUrls(imageUrls.reverse(), dispatch);
 
         dispatch({
           type: ERROR_LOG,

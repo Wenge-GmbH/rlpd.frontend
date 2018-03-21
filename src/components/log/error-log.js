@@ -13,7 +13,6 @@ class Errorlog extends Component {
 
   renderImage = (key) => {
     const { errorImages } = this.props;
-    // console.log(errorImages);
     if (errorImages) {
       return <img src={errorImages[key]} />;
     } else {
@@ -37,8 +36,8 @@ class Errorlog extends Component {
     return (
       <div className="outer-container">
         <h1 className="align-center">Errorlog</h1>
-        <div className="column container justify-center flex-align-center">
-          {log}
+        <div className="row container justify-center flex-align-center">
+          {log.reverse()}
         </div>
       </div>
     );
