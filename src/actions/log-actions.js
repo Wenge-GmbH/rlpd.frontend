@@ -32,9 +32,9 @@ export const getImgUrls = (arr, dispatch) => {
   function checkExecution() {
     if (i < arr.length) {
       const path = arr[i].path;
-      const sliceAt = path.indexOf('/') + 1;
-      const getPath = [path.slice(0, sliceAt), 'thumb_', path.slice(sliceAt)].join('');
-      getUrl(getPath, arr[i].key);
+      // const sliceAt = path.indexOf('/') + 1;
+      // const getPath = [path.slice(0, sliceAt), 'thumb_', path.slice(sliceAt)].join('');
+      getUrl(path, arr[i].key);
     } else {
       return;
     }

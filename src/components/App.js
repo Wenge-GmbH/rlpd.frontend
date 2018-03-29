@@ -22,6 +22,7 @@ class App extends Component {
           <Link to="/">Home</Link>
           <Link to="/log/success">Success Log</Link>
           <Link to="/log/error">Error Log</Link>
+          <Link to="/image-stream">Stream</Link>
           <Link to="/signout">Signout</Link>
         </nav>
       );

@@ -12,3 +12,5 @@ export const ERROR_LOG = 'error_log';
 export const ERROR_IMAGE = 'error_image';
 
 export const GET_SETTINGS = 'get_settings';
+
+export const STREAM_IMAGE = 'stream_image';

@@ -14,7 +14,7 @@ class Errorlog extends Component {
   renderImage = (key) => {
     const { errorImages } = this.props;
     if (errorImages) {
-      return <img src={errorImages[key]} />;
+      return <img src={errorImages[key]} alt=" " />;
     } else {
       return <p>...loading</p>;
     }
