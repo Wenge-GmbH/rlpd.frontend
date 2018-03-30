@@ -4,6 +4,7 @@ import { plateImage } from '../../actions';
 
 class ImageStream extends Component {
   componentDidMount() {
+    console.log(this.props);
     console.log('mounted');
     if(!this.ctx) {
       this.ctx = this.canvas.getContext('2d');
@@ -11,17 +12,20 @@ class ImageStream extends Component {
     this.props.plateImage();
     this.setImage();
   }
+  getDerivedStateFromProps(nextProps, prevProps) {
+    console.log('hi');
+  }
 
   setImage() {
-    const { imageData } = this.props.stream;
+    let { imageData } = this.props;
     console.log(imageData);
-    console.log(this.ctx);
+
     if(!imageData) {
       return false;
     }
+    imageData = `data:image/jpg;base64,${imageData}`
     let img = new Image();
     img.src = imageData;
-    console.log(img);
     img.onload = () => {
 	    this.ctx.drawImage(img, 0, 0);
 		};
@@ -39,7 +43,9 @@ class ImageStream extends Component {
   }
 }
 
-const mapStateToProps = ({stream}) => ({ stream })
+const mapStateToProps = ({stream}) => ({
+  imageData: stream.imageData
+})
 
 export default connect(
   mapStateToProps, { plateImage }
