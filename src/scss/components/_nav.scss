@@ -5,14 +5,12 @@
     @extend .fullScreenSection;
     @extend .shadow-left;
   }
-  &-authed {
-
-  }
 }
 
 nav {
   position: fixed;
-  width: 250px;
+  overflow: hidden;
+  width: 0;
   height: 100vh;
   z-index: 100;
   top: 0;
@@ -24,7 +22,18 @@ nav {
   justify-content: flex-end;
   align-items: center;
   z-index: 100;
+  transition: 0.3s;
 
+  &.open {
+    width: 100%;
+  }
+
+  @include respond-to($medium){
+    width: 250px;
+    &.open {
+      width: 250px;
+    }
+  };
   a {
     color: $text;
     padding: 16px 20px;

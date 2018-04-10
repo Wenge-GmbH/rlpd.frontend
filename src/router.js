@@ -7,7 +7,6 @@ import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 import SuccessLog from './components/log/success-log';
 import ErrorLog from './components/log/error-log';
-import VideoStream from './components/video-stream';
 
 class MainRouter extends Component {
   render() {
@@ -19,7 +18,6 @@ class MainRouter extends Component {
           <Route path="/signout" component={Signout} />
           <PrivateRoute path="/log/success" component={SuccessLog} />
           <PrivateRoute path="/log/error" component={ErrorLog} />
-          <PrivateRoute path="/stream" component={VideoStream} />
         </Switch>
       </div>
     )

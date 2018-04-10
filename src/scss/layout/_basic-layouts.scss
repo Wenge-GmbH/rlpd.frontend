@@ -9,10 +9,17 @@
 }
 
 .container {
+  overflow-y: scroll;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 12px;
+  max-height: calc(100vh - 70px);
+
+  @include respond-to($medium) {
+    max-height: none;
+    overflow-y: initial;
+  };
 
   &-middle-small {
     @extend .container;
@@ -58,5 +65,10 @@
 }
 
 .outer-container {
-  padding-left: 250px;
+  padding-top: 50px;
+
+  @include respond-to($medium) {
+    padding: 0;
+    padding-left: 250px;
+  };
 }

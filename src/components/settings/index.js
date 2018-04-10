@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { renderField } from '../helpers';
 import { getSettings, updateSettings, toggleDetection, toggleStream } from '../../actions';
+import VideoStream from '../video-stream';
 
 class Settings extends Component {
   componentWillMount() {
@@ -64,20 +65,23 @@ class Settings extends Component {
     return (
       <div className="outer-container fullScreenSection row flex-align-center justify-center">
         <div className="container">
-          {this.renderForm()}
           <div>
-            <button
-              className="danger"
-              onClick={this.toggleDetection}
-            >Toggle Detection</button>
-            <p>Current Status: {this.props.settings.stopped ? 'stopped' : 'running'}</p>
-          </div>
-          <div>
-            <button
-              className="danger"
-              onClick={this.toggleStream}
-            >Toggle Stream</button>
-            <p>Current Status: {!this.props.settings.stream ? 'stopped' : 'running'}</p>
+            {this.renderForm()}
+            <div>
+              <button
+                className="danger"
+                onClick={this.toggleDetection}
+              >Toggle Detection</button>
+              <p>Current Status: {this.props.settings.stopped ? 'stopped' : 'running'}</p>
+            </div>
+            <div>
+              <button
+                className="danger"
+                onClick={this.toggleStream}
+              >Toggle Stream</button>
+              <p>Current Status: {!this.props.settings.stream ? 'stopped' : 'running'}</p>
+            </div>
+            <VideoStream />
           </div>
         </div>
       </div>
