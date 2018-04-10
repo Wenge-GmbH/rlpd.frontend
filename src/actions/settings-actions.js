@@ -27,9 +27,24 @@ export const updateSettings = (values) => dispatch => {
   db.ref('settings').update(updates);
 }
 
-export const stopDetection = (bool) => dispatch => {
+export const toggleDetection = (bool) => dispatch => {
   const updates = {
     stopped: !bool
   }
+  db.ref('settings').update(updates);
+}
+export const toggleStream = (bool) => dispatch => {
+  let updates;
+  if(!bool) {
+    updates = {
+      stopped: true,
+      stream: true
+    }
+  } else {
+    updates = {
+      stream: false
+    }
+  }
+
   db.ref('settings').update(updates);
 }

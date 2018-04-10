@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { renderField } from '../helpers';
-import { getSettings, updateSettings, stopDetection } from '../../actions';
+import { getSettings, updateSettings, toggleDetection, toggleStream } from '../../actions';
 
 class Settings extends Component {
   componentWillMount() {
@@ -13,12 +13,15 @@ class Settings extends Component {
     success = values.success || success;
     error = values.error || error;
     nighttime = values.nighttime || nighttime;
-    
+
     this.props.updateSettings({success, error, nighttime});
   }
 
-  stopDetection = () => {
-    this.props.stopDetection(this.props.settings.stopped);
+  toggleDetection = () => {
+    this.props.toggleDetection(this.props.settings.stopped);
+  }
+  toggleStream = () => {
+    this.props.toggleStream(this.props.settings.stream);
   }
 
   renderForm() {
@@ -65,9 +68,16 @@ class Settings extends Component {
           <div>
             <button
               className="danger"
-              onClick={this.stopDetection}
+              onClick={this.toggleDetection}
             >Toggle Detection</button>
             <p>Current Status: {this.props.settings.stopped ? 'stopped' : 'running'}</p>
+          </div>
+          <div>
+            <button
+              className="danger"
+              onClick={this.toggleStream}
+            >Toggle Stream</button>
+            <p>Current Status: {!this.props.settings.stream ? 'stopped' : 'running'}</p>
           </div>
         </div>
       </div>
@@ -82,6 +92,6 @@ export default reduxForm({
 })(
   connect(
     mapStateToProps,
-    { getSettings, updateSettings, stopDetection }
+    { getSettings, updateSettings, toggleDetection, toggleStream }
   )(Settings)
 );
